@@ -1,0 +1,78 @@
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 6% 6.5%;
+        --card-foreground: 0 0% 98%;
+        --popover: 240 6% 6.5%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 239 84% 67%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 240 5% 10%;
+        --secondary-foreground: 0 0% 98%;
+        --accent: 234 89% 74%;
+        --accent-foreground: 240 10% 4%;
+        --muted: 240 4% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --destructive: 351 95% 71%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 6% 11%;
+        --input: 240 5% 10%;
+        --ring: 239 84% 67%;
+        --radius: 0.5rem;
+        --chart-1: 239 84% 67%;
+        --chart-2: 234 89% 74%;
+        --chart-3: 160 64% 52%;
+        --chart-4: 351 95% 71%;
+        --chart-5: 43 74% 66%;
+    }
+}
+
+body {
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background-color: hsl(240, 10%, 3.9%);
+    color: hsl(0, 0%, 98%);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cabinet Grotesk', -apple-system, system-ui, sans-serif;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+}
+
+code, .font-mono {
+    font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    font-variant-numeric: tabular-nums;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* Ensure debug wrappers don't interfere */
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit; margin-right: inherit; margin-top: inherit; margin-bottom: inherit;
+        padding-left: inherit; padding-right: inherit; padding-top: inherit; padding-bottom: inherit;
+        gap: inherit; column-gap: inherit; row-gap: inherit;
+    }
+}
